@@ -6,7 +6,7 @@ var logger = require('morgan');
 const { Server } = require('http');
 
 var publicasRouter = require('./routes/rutasPublicas');
-var cuentasRouter = require('./routes/manejoDeCuentas');
+var cuentasRouter = require('./routes/usuariosRUTAS');
 
 var app = express();
 

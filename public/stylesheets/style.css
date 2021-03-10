@@ -1,8 +1,27 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.contenedor{
+  height: 100vh; display: flex; flex-direction: row; justify-content: center; align-items: center; 
 }
 
-a {
-  color: #00B7FF;
+.img_login{
+  display: none;
+}
+
+.img_forgetPassword{
+    display: none;
+}
+
+
+@media screen and (min-width:850px){
+
+  .img_login{
+    display: inline;
+    max-width: 40%;
+    height: auto;
+  }
+
+  .img_forgetPassword{
+    display: inline;
+    width: 30%;
+    height: auto;
+}
 }
