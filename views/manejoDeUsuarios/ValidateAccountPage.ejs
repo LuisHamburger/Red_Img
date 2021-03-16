@@ -6,30 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-    <link rel="stylesheet" href="stylesheets/normalize.css">
-    <title>BookHam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <title>MemeHam - Validate Account</title>
 </head>
 <body>
-
-    <div class="bg-light" style=" height: 100vh; display: flex; justify-content: center; align-items: center;">
-        <article class="card-body " style="max-width: 700px; " >
-            <h4 class="card-title mt-3 text-center" style="font-size: 3em;">Validar Cuenta</h4>
-            <form method="POST" action= <%="/validarCuenta/" + telefono %> >
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                </div>
-                <input name="correo" class="form-control" placeholder="Correo Electronico" type="email">
-            </div> <!-- form-group// -->                              
-            <div class="form-group">
-                <button type="submit"  class="btn btn-primary btn-block"> Validar  </button>
-            </div> <!-- form-group// -->                                                                    
-        </form>
-        </article>
+    
+        <div class="bg-light contenedor_validateAccount">
+            <article class="card-body contenedor_validateAccount_card-body"   >
+                <h1 class="h1 mt-3 text-center">Validar Cuenta</h1>
+                <form method="POST" action= <%="/validarCuenta/" + nombreDeUsuario%> >
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="correo" class="form-control" placeholder="Correo Electronico" required type="email">
+                    </div> <!-- form-group// -->                              
+                    <div class="form-group">
+                        <button type="submit"  class="btn btn-primary btn-block colorFondoBoton"> Validar  </button>
+                    </div> <!-- form-group// -->                                                                    
+                </form>
+            </article>
         </div> <!-- card.// -->
-        
-        </div> 
-        <!--container end.//-->
+            
+
     
 </body>
 

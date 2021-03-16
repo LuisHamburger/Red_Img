@@ -1,27 +1,174 @@
-.contenedor{
-  height: 100vh; display: flex; flex-direction: row; justify-content: center; align-items: center; 
+.colorFondoBoton{
+  background-color: #6c63ff !important;
+  border-color: #6c63ff !important;;
 }
 
-.img_login{
+.colorEnlaces{
+  color:  #6c63ff !important;
+}
+/*                                                                                                */
+.contenedorError{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contenedorError_imagen{
+  max-width: 50%;
+  height: auto;
+}
+
+.contenedorLogin, .contenedorSignUp, .contenedor_validateAccount, .contenedor_passwordReset, .contenedor_forgetPassword{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+}
+
+.contenedorHome, .contenedorProfile{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  font-size: 25px;
+  font-family: 'Amatic SC', cursive;
+}
+
+.contenedorLogin_img, .contenedor_forgetPassword_img{
   display: none;
 }
 
-.img_forgetPassword{
-    display: none;
+.contenedorLogin_btnGoogle, .contenedorSignUp_btnGoogle{
+  background-color: #9d405c;
+  color: #fff;
 }
 
 
-@media screen and (min-width:850px){
+.contenedorLogin_btnFacebook, .contenedorSignUp_btnFacebook{
+  background-color: #405D9D;
+  color: #fff;
+}
 
-  .img_login{
+
+.contenedorLogin_card-body, .contenedorSignUp_card-body, .contenedor_validateAccount_card-body, .contenedor_passwordReset_card-body, .contenedor_forgetPassword_card-body {
+  max-width: 30em;
+}
+
+
+.contenedor_passwordReset_card-body_img{
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+
+
+.contenedorHome_nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 10vh;
+  font-size: 1em;
+  position: fixed;
+  bottom: 0%;
+  border-top: 2px solid rgb(168, 168, 168);
+  z-index: 1000;
+  background-color: #fff;
+}
+
+.contenedorHome_nav_titulo{
+  display: none;
+}
+
+.contenedorHome_section{
+  overflow-y: scroll;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorProfile_imgPerfil{
+  width: 77px;
+  height: 77px;
+  border-radius: 20%;
+  margin: 0;
+}
+
+.contenedorProfile_descripción{
+  font-size: 0.5em;
+}
+
+.contenedorProfile_section{
+  border-top: 2px solid rgb(168, 168, 168);
+  height: 75vh;
+  width: 100%;
+  overflow-y:scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media screen and (min-width: 800px){
+
+  .contenedorError_imagen{
+    max-width: 17%;
+    height: auto;
+  }
+
+  .contenedorLogin_img, .contenedor_forgetPassword_img{
     display: inline;
     max-width: 40%;
     height: auto;
   }
 
-  .img_forgetPassword{
+  .contenedorHome_nav_titulo{
     display: inline;
-    width: 30%;
-    height: auto;
+    font-size: 1.5em;
+  }
+
+  .contenedorHome_section_publicación{
+    
+    margin-right: 40px;
+  }
+
 }
+
+
+/*------------------------Formato publicaciones-------------------------*/
+
+.contenedorHome_section_publicación, .contenedorProfile_section_publicación{
+  border: 2px solid rgb(168, 168, 168);
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+.contenedorHome_section_publicación_contenido_img, .contenedorProfile_section_publicación_contenido_img{
+  max-width: 260px;
+  height: 260px;
+  border-radius: 15px;
+}
+
+.contenedorHome_section_publicación p, .contenedorProfile_section_publicación p{
+  border-top: 0.2px solid rgb(168, 168, 168);
+  font-size: 0.8em;
+  text-align: center;
+  margin: 0%;
+}
+
+.contenedorHome_section_publicación_reacciones, .contenedorProfile_section_publicación_reacciones{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid rgb(168, 168, 168);
 }

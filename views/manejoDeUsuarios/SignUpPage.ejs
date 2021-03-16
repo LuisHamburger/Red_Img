@@ -6,29 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pangolin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/normalize.css">
-    <title>BookHam</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>MemeHam - SignUp</title>
 </head>
 <body>
 
-    <div class="bg-light" style=" height: 100vh; display: flex; justify-content: center; align-items: center;">
-        <article class="card-body "  style="max-width: 700px; ">
-            <h4 class="card-title mt-3 text-center">Crear una Cuenta</h4>
-            <p class="text-center">¡Se parte de la familia BookHam!</p>
+    <div class="bg-light contenedorSignUp">
+        <article class="card-body contenedorSignUp_card-body" >
+            <h2 class="card-title mt-3 text-center">Crear una Cuenta</h2>
+            <h4 class="text-center">¡Se parte de la familia MemeHam!</h4>
             <p>
-                <a href="" class="btn btn-block"  style=" background-color: #9d405c; color: #fff;"> <i class="fab fa-google"></i>  Registrar con Google</a>
-                <a href="" class="btn btn-block"  style=" background-color: #405D9D; color: #fff;"> <i class="fab fa-facebook-f"></i>   Registrar con Facebook</a>
+                <a href="" class="btn btn-block contenedorSignUp_btnGoogle"  > <i class="fab fa-google"></i>  Registrar con Google</a>
+                <a href="" class="btn btn-block contenedorSignUp_btnFacebook"  > <i class="fab fa-facebook-f"></i>   Registrar con Facebook</a>
             </p>
-            <p style="text-align: center; margin-top: 15px; margin-bottom: 15px;">
-                <span class="bg-light" style=" padding: 7px; font-size: 1.2em; position: relative; z-index: 2;">O</span>
-            </p>
-            <form action="/registrar" method="POST">
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                 </div>
-                <input name="nombre" class="form-control" placeholder="Nombre Completo" required type="text">
-            </div> <!-- form-group// -->
+            <form action="/registrar" method="POST" enctype="multipart/form-data">
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -37,9 +30,15 @@
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    <span class="input-group-text"> <i class="far fa-id-badge"></i> </span>
                 </div>
-                <input name="telefono" class="form-control" placeholder="Numero de Telefono" type="text">
+                <input name="nombreDeUsuario" class="form-control" required placeholder="Nombre de Usuario" type="text">
+            </div> <!-- form-group// -->
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-file-image"></i> </span>
+                </div>
+                <input name="fotoDePerfil" class="form-control"  required placeholder="Foto de Perfíl" type="file">
             </div> <!-- form-group// -->
             <div class="form-group input-group">
                 <div class="input-group-prepend">
@@ -48,9 +47,9 @@
                 <input name="contraseña" class="form-control" placeholder="Contraseña" required type="password">
             </div> <!-- form-group// -->                                 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Crear Cuenta  </button>
+                <button type="submit" class="btn btn-primary btn-block colorFondoBoton"> Crear Cuenta  </button>
             </div> <!-- form-group// -->      
-            <p class="text-center">¿Ya tienes cuenta? <a href="/">Ingresar</a> </p>                                                                 
+            <p class="text-center ">¿Ya tienes cuenta? <a href="/" class="colorEnlaces">Ingresar</a> </p>                                                                 
         </form>
         </article>
         </div> <!-- card.// -->

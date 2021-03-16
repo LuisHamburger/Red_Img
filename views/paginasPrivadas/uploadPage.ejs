@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>UpLoad - MemeHam</title>
+</head>
+<body>
+
+    <div class="contenedorLogin">
+
+        <img  class="contenedorLogin_img"  src="images/undraw_uploading_go67.png" alt="">
+    
+        <article class="card-body contenedorLogin_card-body"  >
+            <h4 class="h1 mt-3 text-center" >Cargar Archivo</h4>
+            <form method="POST" action="">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-file-signature"></i> </span>
+                    </div>
+                    <input name="correo" class="form-control" placeholder="Name" required type="text" maxlength="20">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-quote-right"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Description"  name="" required type="text" maxlength="50">
+                </div> <!-- form-group// -->   
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="far fa-file"></i> </span>
+                    </div>
+                    <input class="form-control" placeholder="Icon"  name="" required type="file" >
+                </div> <!-- form-group// -->                                  
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block colorFondoBoton"> Subir  </button>
+                </div> <!-- form-group// -->      
+               
+            </form>
+        </article>
+        
+    
+    
+</body>
+</html>
