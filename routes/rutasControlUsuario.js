@@ -3,28 +3,17 @@ var router = express.Router();
 var database = require("../public/database/conexionBD");
 var bcrypt = require("bcrypt");
 var mailer = require("../public/helpers/nodemailer")
-var multer = require("multer");
-var path = require("path")
+var upload = require("../public/helpers/multer");
+const session = require("express-session");
 let db = database.conexion;
 let mail = mailer.transporter;
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join("./public/images/fotosDePerfil"))
-    },
-    filename: function (req, file, cb) {
-      cb(null,  Date.now()+'-'+file.originalname)
-    }
-  })
-   
 
-var upload = multer({ storage: storage })
 
 router.post("/ingresar", async (req, res)=>{
     
     let nombreOcorreo = req.body.nombreOcorreo;
     let contraseña = req.body.contraseña;
-    console.log(nombreOcorreo, contraseña)
     let str = "SELECT * FROM usuarios WHERE correo ='"+nombreOcorreo+"' OR nombreDeUsuario ='"+nombreOcorreo+"'";
     console.log(str)
     await db.all(str, async (error, fila)=>{
@@ -32,14 +21,21 @@ router.post("/ingresar", async (req, res)=>{
         else{
             if(fila.length == 1){
                 if(await bcrypt.compare(contraseña, fila[0].contraseña)){
-                    res.redirect("/home")
-                }else{res.send("Bad")} 
-            }else{res.send("Bad")} 
+                    req.session.usuario= {
+                        idUsuario : fila[0].id,
+                        nombreUsuario : fila[0].nombreDeUsuario, 
+                        correoUsuario : fila[0].correo,
+                        fotoUsuario : fila[0].fotoDePerfil, 
+                        validacion : true
+                    }                  
+                    res.redirect("/home");
+                }else{res.redirect("/")} 
+            }else{res.redirect("/");} 
         }
     })
 });
 
-router.post("/registrar",upload.single("fotoDePerfil"), async (req, res)=>{
+router.post("/registrar", upload.single("fotoDePerfil"), async (req, res)=>{
 
     let nombreDeUsuario = req.body.nombreDeUsuario;
     let correo = req.body.correo;
@@ -70,6 +66,10 @@ router.post("/registrar",upload.single("fotoDePerfil"), async (req, res)=>{
 
 });
 
+router.get("/salir", (req, res)=>{
+    req.session.destroy((error)=>{console.log("Error al cerrar sesión")})
+    res.redirect("/");
+})
 
 router.post("/validarCuenta/:nombreDeUsuario", async (req, res)=>{
 

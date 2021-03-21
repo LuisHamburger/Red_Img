@@ -19,9 +19,7 @@ router.get("/forgetPassword", (req, res)=>{
   res.render("manejoDeUsuarios/forgetPasswordPage")
 })
 
-router.get("/home", (req, res)=>{
-  res.render("paginasPrivadas/homePage")
-})
+
 
 
 

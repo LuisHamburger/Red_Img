@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const { Server } = require('http');
+var session = require("express-session");
+
 
 var publicasRouter = require('./routes/rutasPublicas');
-var cuentasRouter = require('./routes/usuariosRUTAS');
+var cuentasRouter = require('./routes/rutasControlUsuario');
+var privadasRouter = require('./routes/rutasPrivadas');
 
 var app = express();
 
@@ -20,8 +23,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'SosUnCrackHiperSecretot',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 144000000}
+}))
+
 app.use('/',publicasRouter);
 app.use('/', cuentasRouter);
+app.use('/', privadasRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

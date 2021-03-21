@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>ShareHam - <%=username%> </title>
+</head>
+<body>
+
+    <div class="contenedorProfile">
+
+        <nav class="contenedorHome_nav">     
+            <div class="contenedorHome_nav_titulo colorBlancoLetras">
+                ShareHam
+            </div>  
+            <a href=<%="/profile:"+ username %> class="colorEnlaces"><i class="far fa-user-circle"></i></a>
+            <a href="/home" class="colorEnlaces"><i class="fas fa-home"></i></a>
+            <a href="" class="colorEnlaces"><i class="fas fa-comments"></i></a>       
+            <a href="/salir" class="colorEnlaces"><i class="fas fa-sign-out-alt"></i></i></a>            
+        </nav>
+        <% let fotoPerfil = foto.replace("public", ".."); %>
+        <img src=<%=fotoPerfil%>  alt="" class="contenedorProfile_imgPerfil">
+        <h4 class="colorBlancoLetras"><%=username%></h4>
+
+        <section class="contenedorProfile_section" >
+    
+            <% for(const fila in filas){ %>
+            
+                <div class="contenedorProfile_section_publicación">
+                    <textarea name="contenido" readonly cols="30" rows="5" class="colorBlancoLetras contenedorProfile_section_publicación_contenido_form-input"><%= filas[fila].contenido %></textarea>
+                    <p class="colorBlancoLetras"><%=filas[fila].autor%></p>
+                    <p class="colorBlancoLetras"><%=filas[fila].fecha%></p>
+                    <div class="contenedorProfile_section_publicación_reacciones">
+                        <a href=<%="/eliminarPublicacion/"+filas[fila].id %> class="colorEnlaces"><i class="far fa-trash-alt"></i> <p class="colorBlancoLetras"><%=filas[fila].likes%></p></a>
+                    </div>
+                </div>
+            <% } %>
+        </section>
+
+    </div>
+    
+</body>
+</html>

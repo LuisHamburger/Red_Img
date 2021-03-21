@@ -1,15 +1,18 @@
 var multer = require("multer");
+var path = require("path")
+
 
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../images/fotosDePerfil')
+    cb(null, path.join("./public/images/fotosDePerfil"))
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+    cb(null,  Date.now()+'-'+file.originalname)
   }
 })
-
 var upload = multer({ storage: storage })
 
-exports.module = upload;
+
+module.exports = upload;
+

@@ -7,37 +7,48 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/normalize.css">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <title>MemeHam - Home</title>
+    <title>ShareHam - Home</title>
 </head>
 <body>
     <div class="contenedorHome">
         <nav class="contenedorHome_nav">     
-            <div class="contenedorHome_nav_titulo">
-                MemeHam
+            <div class="contenedorHome_nav_titulo colorBlancoLetras">
+                ShareHam
             </div>   
-            <a href="" class="colorEnlaces"><i class="far fa-user-circle"></i></a>
-            <a href="" class="colorEnlaces"><i class="fas fa-home"></i></a>
-            <a href="" class="colorEnlaces"><i class="fas fa-puzzle-piece"></i></a>
-            <a href="" class="colorEnlaces"><i class="fas fa-comments"></i></a>                
+            <a href= <%="/profile:"+ username %> class="colorEnlaces"><i class="far fa-user-circle"></i></a>
+            <a href="/home" class="colorEnlaces"><i class="fas fa-home"></i></a>
+            <a href="" class="colorEnlaces"><i class="fas fa-comments"></i></a>  
+            <a href="/salir" class="colorEnlaces"><i class="fas fa-sign-out-alt"></i></i></a>              
         </nav>
 
         <section class="contenedorHome_section">
 
             <div class="contenedorHome_section_publicación">
                 <div class="contenedorHome_section_publicación_contenido">
-                    <img src="" alt="" class="contenedorHome_section_publicación_contenido_img">
-                </div>
-                <p>Nombre publicación</p>
-                <p>Nombre publicación</p>
-                <div class="contenedorHome_section_publicación_reacciones">
-                    <a href="" class="colorEnlaces"><i class="far fa-thumbs-up"></i></a>
-                    <a href="" class="colorEnlaces"><i class="far fa-save"></i></a>
+                    <form action="/publicar" method="POST" class="contenedorHome_section_publicación_contenido_form">
+                        <textarea name="contenido"  cols="30" rows="5" placeholder="¿Qué estás pensando?" class="colorBlancoLetras contenedorHome_section_publicación_contenido_form-input"></textarea>
+                        <button type="submit" class="colorEnlaces contenedorHome_section_publicación_contenido_form-boton">Publicar</button>
+                    </form> 
                 </div>
             </div>
 
+            <% for(const fila in filas){ %>
+            
+                <div class="contenedorHome_section_publicación">
+                   <textarea name="contenido" readonly cols="30" rows="5" class="colorBlancoLetras contenedorHome_section_publicación_contenido_form-input"><%= filas[fila].contenido %></textarea>
+                    <p class="colorBlancoLetras"><%=filas[fila].autor%></p>
+                    <p class="colorBlancoLetras"><%=filas[fila].fecha%></p>
+                    <div class="contenedorHome_section_publicación_reacciones">
+                        <a href="" class="colorEnlaces"><i class="far fa-thumbs-up"></i></a>
+                    </div>
+                </div>
+            <% } %>
+
         </section>
+       
     </div>
 </body>
 </html>
